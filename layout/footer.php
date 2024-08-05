@@ -1,6 +1,6 @@
 <!-- COMIENZA FOOTER -->
 
-<footer class="text-center text-lg-start text-white position-absolute w-100 " style="background-color:#797D7F">
+<footer class="text-center text-lg-start text-white  w-100 mt-auto" style="background-color:#797D7F">
   <!-- Grid container -->
   <div class="container p-4 pb-0">
     <!-- Section: Links -->

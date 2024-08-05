@@ -87,7 +87,7 @@ if($confirmar_contrasena != $contrasena){
 if(!$error){
         $contrasena = password_hash($contrasena, PASSWORD_DEFAULT);
         $creado_en = date('Y-m-d H:i:s');
-        echo $creado_en;
+
 //  DEJA PREPARADAS LAS DECLARACIONES PARA EVADIR LOS ERRORES DE INYECCION SQL
         $declaracion = $conexion->prepare(
         "INSERT INTO personal (nombre, correo, creado_en, contrasena, telefono)" .
@@ -112,16 +112,17 @@ if(!$error){
     $_SESSION["privilegio"] = 'cliente';
     $_SESSION['creado_en'] = $creado_en;
 
-    header("location: /index.php");
+    header("location: /vistas_clientes/index.php");
     exit;
 
     }
 }
     ?>
+<div class="w-100 container">
 
-<div class="container py-5 w-100 ">
-    <div class="row">
-        <div class="col-lg-6 mx-auto border shadow p-3">
+
+    <div class="row mt-5 mb-5">
+        <div class="col-lg-6 mx-auto border shadow p-3 ">
 
             <h2 class="text-center mb-4">Registrate</h2>
             <hr />
@@ -174,7 +175,7 @@ if(!$error){
                 </div>
             </form>
         </div>
-    </div>
+        </div>
     <?php
     include "layout/footer.php"
         ?>
