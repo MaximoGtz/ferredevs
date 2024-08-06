@@ -9,7 +9,7 @@ include "layout/header.php"
 
           <h1>Encuentra las mejores herramientas!</h1>
           <p>
-            Encuentra una larga seccion de herramientas que te ayudan en tu trabajo.
+            Encuentra una larga seccion de herramientas que te ayudan en tu trabajo. Cambio
           </p>
           <button type="button" class="btn btn-warning  font-weight-bold"><a class="text-decoration-none text-dark"
               href="/register.php">Registrate ahora!</a></button>
