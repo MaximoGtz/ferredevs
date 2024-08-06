@@ -1,6 +1,10 @@
 
 <?php 
-include "layout/header.php"
+include "layout/header.php";
+if(isset($_SESSION['correo'])){
+  header("location: /vistas_clientes/index.php");
+  exit;
+}
 ?>
   <div style="background-color: #08618d">
     <div class="container text-white py-5">
@@ -9,7 +13,7 @@ include "layout/header.php"
 
           <h1>Encuentra las mejores herramientas!</h1>
           <p>
-            Encuentra una larga seccion de herramientas que te ayudan en tu trabajo. Cambio otra vez.
+            Encuentra una larga seccion de herramientas que te ayudan en tu trabajo.
           </p>
           <button type="button" class="btn btn-warning  font-weight-bold"><a class="text-decoration-none text-dark"
               href="/register.php">Registrate ahora!</a></button>

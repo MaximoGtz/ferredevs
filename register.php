@@ -175,7 +175,8 @@ if(!$error){
                 </div>
             </form>
         </div>
-        </div>
+    </div>
+</div>
     <?php
     include "layout/footer.php"
         ?>
