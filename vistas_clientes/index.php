@@ -8,31 +8,34 @@ if (!isset($_SESSION['correo'])) {
 ?>
 
 <style>
-    <?php include 'styles.css'; ?>
+<?php include 'styles.css';
+?>
 </style>
-<div style="min-height: 1000px; background-color:#D35400;">
-
-    <div style="height:500px" class="imagenFondo pt-5">
-        <div class="container w-50 shadow-lg p-2 mb-5 bg-white rounded">
-            <h1>Bienvenido a nuestra tienda!</h1>
-        </div>
-
-        <div class="d-flex justify-content-around ">
-            <div class="cajaHeader shadow-lg p-3 mb-5 bg-white rounded">
-                Esta es mi primera cajas
-                <a href="/index.php">
-
-                    <img src="../imgs/svgs/homeIcon.svg" alt="no se cargo el svg" />
-                </a>
-                <i class="bi bi-airplane-fill"></i>
+<div>
+    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active imagenFondo imagenCarrusel">
+                <h1>Hola mundo </h1>
             </div>
-            <div class="cajaHeader shadow-lg p-3 mb-5 bg-white rounded">
-                Esta es mi segunda caja
+            <div class="carousel-item imagenFondo2 imagenCarrusel">
+                <img src="..." class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item imagenFondo3 imagenCarrusel">
+                <img src="..." class="d-block w-100" alt="...">
             </div>
         </div>
-
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
+            data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
+            data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
     </div>
-    <img src="../imgs/svgs/homeIcon.svg" alt="no se cargo el svg" />
+<div>Hola mundo</div>
 </div>
 
 

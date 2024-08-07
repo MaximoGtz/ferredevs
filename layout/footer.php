@@ -1,6 +1,6 @@
 <!-- COMIENZA FOOTER -->
 
-<footer class="text-center text-lg-start text-white  w-100 mt-auto" style="background-color:#797D7F">
+<footer class="text-center text-lg-start text-white  w-100 mt-auto" style="background-color:#1d4e89">
   <!-- Grid container -->
   <div class="container p-4 pb-0">
     <!-- Section: Links -->
@@ -86,8 +86,8 @@
         <div class="col-md-7 col-lg-8 text-center text-md-start">
           <!-- Copyright -->
           <div class="p-3">
-            © 2020 Copyright:
-            <a class="text-white" href="https://mdbootstrap.com/">MDBootstrap.com</a>
+            © FerreDevs
+            <a class="text-white" href="/index.php">Ferretería Azteca</a>
           </div>
           <!-- Copyright -->
         </div>
