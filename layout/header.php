@@ -71,7 +71,7 @@ if (isset($_SESSION["correo"])) {
                 Admin
               </a>
               <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="/profile.php">Perfil</a></li>
+                <li><a class="dropdown-item" href="/vistas_clientes/perfil.php">Perfil</a></li>
                 <li>
                   <hr class="dropdown-divider">
                 </li>
