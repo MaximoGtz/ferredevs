@@ -1,47 +1,69 @@
 <?php 
 include "layout/header.php";
 ?>
-<!-- importo la hoja de estilos -->
 <link rel="stylesheet" href="styles.css" type="text/css">
 <div class="container-lg">
-    <!-- Este es el contenedor que divide el buscador de los productos -->
     <div class="row contenedorVerProductos">
         <div class="col-3 bg-primary">
-            Aqui va a estar el buscador de los productos
+            Aquí va a estar el buscador de los productos
         </div>
-        <div class="col-9 bg-secondary row align-items-start">
-            <div class="card col gy-2 gx-2" style="width: 18rem;">
-                <img src="./imgs/martillo.png" class="productImg" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                        card's content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-            </div>
-            <div class="card col gy-2 gx-2" style="width: 18rem;">
-                <img src="./imgs/palas.jpg" class="productImg" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                        card's content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-            </div>
-            <div class="card col gy-2 gx-2" style="width: 18rem;">
-                <img src="./imgs/palas.jpg" class="productImg" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                        card's content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
+        <div class="col-9 bg-secondary">
+            <div class="row row-cols-1 row-cols-md-3 g-4">
+                <?php
+                include "herramientas/basededatos.php";
+                $conn = crearConexion();
+                $sql = "SELECT * FROM producto";
+                $result = $conn->query($sql);
+                $cliente_id = $_SESSION['id'];
+
+                while($row = $result->fetch_assoc()) {
+                    if (!empty($row['Imagen'])) {
+                        $ruta_imagen = './imgs/' . $row['Imagen'];
+                        if (file_exists($ruta_imagen)) {
+                            $contenido_imagen = file_get_contents($ruta_imagen);
+                            $imagen_base64 = base64_encode($contenido_imagen);
+                            $tipo_imagen = mime_content_type($ruta_imagen);
+                            $src_imagen = 'data:' . $tipo_imagen . ';base64,' . $imagen_base64;
+                        } else {
+                            $src_imagen = 'ruta/a/imagen_por_defecto.jpg';
+                        }
+                    } else {
+                        $src_imagen = 'ruta/a/imagen_por_defecto.jpg';
+                    }
+                    
+                    echo '<div class="col">';
+                    echo '<div class="card h-100">';
+                    echo '<img src="' . $src_imagen . '" class="productImg card-img-top" alt="...">';
+                    echo '<div class="card-body">';
+                    echo '<h5 class="card-title">' . $row['Nombre'] . '</h5>';
+                    echo '<p class="card-text">' . $row['Marca'] . '</p>';
+                    echo '<p class="card-text">' . $row['descripcion'] . '</p>';
+                    echo '<p class="card-text"> $' . $row['PrecioDeCompra'] . '</p>';
+                    echo '<p class="card-text"> Existencias: ' . $row['Existencias'] . '</p>';
+
+
+                    if ($row['Existencias'] > 0) {
+                        echo '<form method="POST" action="agregar_a_carrito.php">';
+                        echo '<input type="hidden" name="id_producto" value="' . $row['IdProducto'] . '">';
+                        echo '<input type="hidden" name="id_usuario" value="' . $cliente_id . '">';
+                        echo '<input type="hidden" name="cantidad" value="1">'; 
+                        echo '<button type="submit" class="btn btn-primary">Agregar al carrito</button>';
+                        echo '</form>';
+                    } else {
+
+                        echo '<p class="text-danger">Producto agotado</p>';
+                    }
+
+                    echo '</div>';
+                    echo '</div>';
+                    echo '</div>';
+                }
+                ?>
             </div>
         </div>
-        
     </div>
 </div>
 
 <?php 
-include "layout/footer.php"
+include "layout/footer.php";
 ?>
