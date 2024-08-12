@@ -1,5 +1,7 @@
 .contenedorVerProductos{
     min-height: 1000px;
+
+    
 }
 .productoImg{
     width: 200px;
@@ -7,4 +9,26 @@
 }
 .imagen1N{
     width: 100%;
+}
+.carrito {
+    width: 100%;
+    max-width: 300px; 
+    height: auto;
+    display: block;
+    margin: 0 auto; 
+}
+  button {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 5px;
+    width: 100px;
+    height: 70px;
+}
+.objetos_carrito{
+    width: 100vh;
+    color: blue;
+}
+.volver_carrito{
+    padding-left: 400px;
+ size: 40px;
 }

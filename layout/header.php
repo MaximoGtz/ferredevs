@@ -48,6 +48,9 @@ if (isset($_SESSION["correo"])) {
             <li class="nav-item">
               <a class="nav-link text-dark" href="/nosotros.php">Nosotros</a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link text-dark" href="/insertar_productos.php">insertar</a>
+            </li>
         </ul>
         <!-- CON LOGIN -->
         <?php
@@ -77,6 +80,12 @@ if (isset($_SESSION["correo"])) {
                 </li>
                 <li><a class="dropdown-item" href="/logout.php">Cerrar sesión</a></li>
               </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-dark" href="/carrito.php">Carrito de compras</a>    
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-dark" href="/mis_compras.php">mis compras</a>    
             </li>
           </ul>
           <?php
