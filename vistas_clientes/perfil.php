@@ -9,7 +9,9 @@ if (!isset($_SESSION['correo'])) {
 ?>
 <h1>
 este es el perfil
-
+<div>
+    <?php echo $query?>
+</div>
 </h1>
 
 <?php

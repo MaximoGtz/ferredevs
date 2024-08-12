@@ -4,22 +4,7 @@ $auth = false;
 if (isset($_SESSION["correo"])) {
   $rol = $_SESSION['privilegio'];
   $auth = true;
-  switch ($rol) {
-    case 'cliente':
-      # code...
-      $esAdmin = true;
-      break;
-    case 'empleado':
-      # code...
-      break;
-    case 'admin':
-      # code...
-      break;
-    
-    default:
-      # code...
-      break;
-  }
+
 
 
 
@@ -36,7 +21,8 @@ if (isset($_SESSION["correo"])) {
   <link rel="icon" href="/imgs/hammer.png">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-</head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  </head>
 <!-- added styles to the body -->
 <body class="d-flex flex-column min-vh-100">
 
@@ -75,6 +61,17 @@ if (isset($_SESSION["correo"])) {
               </a>
               <ul class="dropdown-menu">
                 <li><a class="dropdown-item" href="/vistas_clientes/perfil.php">Perfil</a></li>
+                <?php 
+                if ($_SESSION['privilegio'] === 'empleado' || $_SESSION['privilegio'] === 'administrador') {
+                  # code...
+                
+                ?>
+                <li>
+                  <hr class="dropdown-divider">
+                </li>
+                <li><a class="dropdown-item" href="/vistas_empleados/agregarProductos.php">Agregar Productos</a></li>
+                
+                <?php }?>
                 <li>
                   <hr class="dropdown-divider">
                 </li>
