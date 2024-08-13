@@ -1,4 +1,8 @@
 <?php 
+if($rol != 'administrador'){
+   header('location: index.php');
+   exit();
+}
 include "layout/header.php";
 include "herramientas/basededatos.php";
 $conn = crearConexion(); 
