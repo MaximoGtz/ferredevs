@@ -18,6 +18,9 @@ $nombre = "";
 $correo = "";
 $telefono = "";
 $contrasena = "";
+$confirmar_contrasena="";
+$rol = "";
+$direccion="";
 
 $errorMensaje = "";
 $exitoMensaje = "";
@@ -43,6 +46,9 @@ if ( $_SERVER['REQUEST_METHOD'] == 'GET') {
     $correo = $row["correo"];
     $telefono = $row["telefono"];
     $contrasena = $row["contrasena"];
+   
+    $rol = $row["rol"];
+    $direccion = $row["direccion"];
 
 } else {
     $IdPersona = $_POST["IdPersona"]; 
@@ -50,19 +56,27 @@ if ( $_SERVER['REQUEST_METHOD'] == 'GET') {
     $correo = $_POST["correo"];
     $telefono = $_POST["telefono"];
     $contrasena = $_POST["contrasena"];
+    $confirmar_contrasena = $_POST["confirmar_contrasena"];
+    $rol = $_POST["rol"];
+    $direccion = $_POST["direccion"];
 
+    
     do{
-    if (empty($nombre) || empty($correo) || empty($telefono) || empty($contrasena)) {
+    if (empty($nombre) || empty($correo) || empty($telefono) || empty($contrasena) || empty($confirmar_contrasena) || empty($rol) || empty($direccion)) {
         $errorMensaje = "Todos los campos son requeridos";
         break;
     }
-        
-
+    if ($confirmar_contrasena != $contrasena) {
+        $errorMensaje = "Las contraseñas no coinciden";
+        break;
+    }
+    
+    $contrasena2 = password_hash($contrasena, PASSWORD_DEFAULT);  
     $sql = "UPDATE personal " . 
      "SET nombre = '$nombre', correo = '$correo', telefono = '$telefono', 
-     contrasena = '$contrasena'" . 
+     contrasena = '$contrasena2', rol = '$rol', direccion = '$direccion'" . 
      "WHERE IdPersona = $IdPersona";
-
+    
     $result = $conexion->query($sql);
 
     if (!$result){
@@ -124,11 +138,34 @@ if ( $_SERVER['REQUEST_METHOD'] == 'GET') {
                 </div>
             </div>
             <div class="row mb-3">
+            <label class="col-sm-3 col-form-label">Direccion</label>
+            <div class="col-sm-6">
+                <input type="text" class="form-control" name="direccion" value="<?php echo $direccion?>">
+            </div>
+        </div>
+            <div class="row mb-3">
                 <label class="col-sm-3 col-form-label">Contraseña</label>
                 <div class="col-sm-6">
                     <input type="password" class="form-control" name="contrasena" value="<?php echo ($contrasena); ?>">
                 </div>
             </div>
+            <div class="row mb-3">
+                <label class="col-sm-3 col-form-label">Confirmar Contrasena</label>
+                <div class="col-sm-6">
+                    <input type="password" class="form-control" name="confirmar_contrasena" value="<?php echo ($confirmar_contrasena); ?>">
+                </div>
+            </div>
+            <div class="row mb-3">
+                <label class="col-sm-3 col-form-label">Rol</label>
+                <div class="col-sm-6">
+                    <select class="form-control" name="rol">
+                        <option value="">Seleccione un rol</option>
+                        <option value="cliente" <?php echo $rol == 'cliente' ? 'selected' : '' ?>>Cliente</option>
+                        <option value="empleado" <?php echo $rol == 'empleado' ? 'selected' : '' ?>>Empleado</option>
+                    </select>
+                </div>
+            </div>
+
 
             <?php
             if (!empty($exitoMensaje)) {

@@ -1,4 +1,3 @@
-
 <?php 
 
  $server = "localhost";
@@ -12,6 +11,9 @@ $nombre ="";
 $correo = "";
 $telefono = "";
 $contrasena ="";
+$confirmar_contrasena ="";
+$rol ="";
+$direccion ="";
 
 $errorMensaje = "";
 $exitoMensaje ="";
@@ -21,13 +23,21 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
         $correo = $_POST["correo"];
         $telefono = $_POST["telefono"];
         $contrasena = $_POST["contrasena"];
+        $confirmar_contrasena = $_POST["confirmar_contrasena"];
+        $rol = $_POST["rol"];
+        $direccion = $_POST["direccion"];
 
         do{
-            if ( empty($nombre) || empty($correo) || empty($telefono) || empty($contrasena)){
+            if ( empty($nombre) || empty($correo) || empty($telefono) || empty($contrasena) || empty($confirmar_contrasena) || empty($rol) || empty($direccion)){
                 $errorMensaje = "todos los campos son requeridos";
                 break;
             }
-
+           
+        if ($confirmar_contrasena != $contrasena) {
+            $errorMensaje = "Las contraseñas no coinciden";
+            break;
+        }
+            $contrasena2 = password_hash($contrasena, PASSWORD_DEFAULT);
             //agregar nuevo cliente a la base de datos
             $sql = "SELECT * FROM personal WHERE correo = '$correo'";
             $result = $conexion->query($sql);
@@ -36,8 +46,8 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
                 $errorMensaje = "El correo ya está registrado";
                 break;
             }
-             $sql ="INSERT INTO personal (nombre, correo, telefono, contrasena) " .
-                "VALUES('$nombre', '$correo', '$telefono', '$contrasena')";
+             $sql ="INSERT INTO personal (nombre, correo, telefono, contrasena, rol, direccion) " .
+                "VALUES('$nombre', '$correo', '$telefono', '$contrasena2', '$rol', '$direccion')";
              $result = $conexion->query($sql);
  
              if(!$result) {
@@ -49,11 +59,19 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
             $correo = "";
             $telefono = "";
             $contrasena ="";
+            $confirmar_contrasena="";
+            $rol ="";
+            $direccion="";
 
             $exitoMensaje = "El cliente se añadido correctamente";
             
-            header("location: /vistas_clientes/perfil.php");
-            exit;
+            echo "<script>
+            setTimeout(function(){
+                window.location.href = '/vistas_clientes/perfil.php';
+            }, 3000); // Redirige después de 4 segundos
+        </script>";
+            
+            
 
         } while (false);
 
@@ -108,11 +126,34 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
             </div>
         </div>
         <div class="row mb-3">
-            <label class="col-sm-3 col-form-label">Contraseña</label>
+            <label class="col-sm-3 col-form-label">Direccion</label>
             <div class="col-sm-6">
-                <input type="text" class="form-control" name="contrasena" value="<?php echo $contrasena?>">
+                <input type="text" class="form-control" name="direccion" value="<?php echo $direccion?>">
             </div>
         </div>
+        <div class="row mb-3">
+            <label class="col-sm-3 col-form-label">Contraseña</label>
+            <div class="col-sm-6">
+                <input type="password" class="form-control" name="contrasena" value="<?php echo $contrasena?>">
+            </div>
+        </div>
+        <div class="row mb-3">
+                <label class="col-sm-3 col-form-label">Confirmar Contrasena</label>
+                <div class="col-sm-6">
+                    <input type="password" class="form-control" name="confirmar_contrasena" value="<?php echo ($confirmar_contrasena); ?>">
+                </div>
+            </div>
+        <div class="row mb-3">
+                <label class="col-sm-3 col-form-label">Rol</label>
+                <div class="col-sm-6">
+                    <select class="form-control" name="rol">
+                        <option value="">Seleccione un rol</option>
+                        <option value="cliente" <?php echo $rol == 'cliente' ? 'selected' : '' ?>>administrador</option>
+                        <option value="cliente" <?php echo $rol == 'cliente' ? 'selected' : '' ?>>Cliente</option>
+                        <option value="empleado" <?php echo $rol == 'empleado' ? 'selected' : '' ?>>Empleado</option>
+                    </select>
+                </div>
+            </div>
 
         <?php
    if (!empty($exitoMensaje)){
