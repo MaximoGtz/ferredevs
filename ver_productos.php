@@ -50,8 +50,9 @@ include "layout/header.php";
                         echo '<button type="submit" class="btn btn-primary">Agregar al carrito</button>';
                         echo '</form>';
                     } else {
-
-                        echo '<p class="text-danger">Producto agotado</p>';
+                        
+                        echo '<button type="submit" class="btn btn-primary">Producto agotado</button>';
+                        // echo '<p class="text-danger">Producto agotado</p>';
                     }
 
                     echo '</div>';
