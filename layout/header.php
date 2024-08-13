@@ -65,6 +65,10 @@ if (isset($_SESSION["correo"])) {
             <li class="nav-item">
               <a class="nav-link text-dark" href="/insertar_productos.php">insertar</a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link text-dark" href="/vista_cliente/perfilCliente.php">perfil Cliente</a>
+            </li>
+           
         </ul>
         <!-- CON LOGIN -->
         <?php

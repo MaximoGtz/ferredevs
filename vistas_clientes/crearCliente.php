@@ -65,8 +65,13 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
 
             $exitoMensaje = "El cliente se añadido correctamente";
             
-            header("location: /vistas_clientes/perfil.php");
-            exit;
+            echo "<script>
+            setTimeout(function(){
+                window.location.href = '/vistas_clientes/perfil.php';
+            }, 3000); // Redirige después de 4 segundos
+        </script>";
+            
+            
 
         } while (false);
 
@@ -129,7 +134,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
         <div class="row mb-3">
             <label class="col-sm-3 col-form-label">Contraseña</label>
             <div class="col-sm-6">
-                <input type="text" class="form-control" name="contrasena" value="<?php echo $contrasena?>">
+                <input type="password" class="form-control" name="contrasena" value="<?php echo $contrasena?>">
             </div>
         </div>
         <div class="row mb-3">
@@ -143,6 +148,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
                 <div class="col-sm-6">
                     <select class="form-control" name="rol">
                         <option value="">Seleccione un rol</option>
+                        <option value="cliente" <?php echo $rol == 'cliente' ? 'selected' : '' ?>>administrador</option>
                         <option value="cliente" <?php echo $rol == 'cliente' ? 'selected' : '' ?>>Cliente</option>
                         <option value="empleado" <?php echo $rol == 'empleado' ? 'selected' : '' ?>>Empleado</option>
                     </select>
