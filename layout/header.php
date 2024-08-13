@@ -4,22 +4,6 @@ $auth = false;
 if (isset($_SESSION["correo"])) {
   $rol = $_SESSION['privilegio'];
   $auth = true;
-  switch ($rol) {
-    case 'cliente':
-      # code...
-      $esAdmin = true;
-      break;
-    case 'empleado':
-      # code...
-      break;
-    case 'admin':
-      # code...
-      break;
-    
-    default:
-      # code...
-      break;
-  }
 
 
 
@@ -36,7 +20,8 @@ if (isset($_SESSION["correo"])) {
   <link rel="icon" href="/imgs/hammer.png">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-</head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  </head>
 <!-- added styles to the body -->
 <body class="d-flex flex-column min-vh-100">
 
@@ -62,9 +47,6 @@ if (isset($_SESSION["correo"])) {
             <li class="nav-item">
               <a class="nav-link text-dark" href="/nosotros.php">Nosotros</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link text-dark" href="/insertar_productos.php">insertar</a>
-            </li>
         </ul>
         <!-- CON LOGIN -->
         <?php
@@ -73,22 +55,57 @@ if (isset($_SESSION["correo"])) {
           <ul class="navbar-nav">
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle text-dark" href="#" role="button" data-bs-toggle="dropdown"
-                aria-expanded="false">
-                Admin
+                aria-expanded="false">Yo, 
+                <?php 
+                echo $_SESSION['nombre'];
+                ?>
               </a>
               <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="/vistas_clientes/perfil.php">Perfil</a></li>
+                <h5 class="fs-4 font-weight-bold" style="padding-left:10px;">
+                <?php 
+                if($rol =='cliente'){
+                  echo 'Cliente';
+                }else if($rol == 'empleado'){
+                  echo 'Empleado';
+                }else if($rol == 'administrador'){
+                  echo 'Administrador';
+                }
+
+                ?>  
+                
+                
+                <h5/>
+                <hr class="dropdown-divider">
+                <li><a class="dropdown-item" href="/vistas_clientes/perfil_cliente.php">Perfil</a></li>
+                <?php 
+                if ($_SESSION['privilegio'] === 'empleado' || $_SESSION['privilegio'] === 'administrador') {
+                  # code...
+                
+                ?>
+
+
+                <li>
+                  <hr class="dropdown-divider">
+                </li>
+                <li><a class="dropdown-item" href="/vistas_empleados/agregar-productos.php">Agregar Productos</a></li>
+                
+                <?php }?>
+                <li>
+                  <hr class="dropdown-divider">
+                </li>
+                  <li class="">
+                    <a class="dropdown-item" href="/carrito.php">Carrito de compras</a>    
+                  </li>
+                  <li class="">
+                    <a class="dropdown-item" href="/mis_compras.php">Mis compras</a>    
+                  </li>
+
+
                 <li>
                   <hr class="dropdown-divider">
                 </li>
                 <li><a class="dropdown-item" href="/logout.php">Cerrar sesión</a></li>
               </ul>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link text-dark" href="/carrito.php">Carrito de compras</a>    
-            </li>
-            <li class="nav-item">
-              <a class="nav-link text-dark" href="/mis_compras.php">mis compras</a>    
             </li>
           </ul>
           <?php

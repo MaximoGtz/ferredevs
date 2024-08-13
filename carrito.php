@@ -6,14 +6,19 @@ include "layout/header.php";
 <br>
 <div class="container-lg">
     <div>
-       <h1>Carrito de compra</h1>
+       <h1 class="text-center">Carrito de compras</h1>
     </div>
-    <div class="contenedorVerProductos">
-        <div class="col-3 bg-primary">
+    <div class="contenedorVerProductos  ">
+        <div>
             <img class="carrito" src="./imgs/CARRITO.png" alt="">
         </div>
         
         <div class="row objetos_carrito">
+        
+        <div class="contenedorProductosCarrito">
+
+        
+        
         <?php
         include "herramientas/basededatos.php";
         $conn = crearConexion(); 
@@ -93,14 +98,20 @@ include "layout/header.php";
             $subtotal = $row['precio'] * $row['cantidad'];
             $total += $subtotal;
 
-            echo "<div>";
-            echo "<h2>Producto: " . $row['producto_nombre'] . "</h2>";
-            echo "<p>Cliente: " . $row['cliente_nombre'] . "</p>";
-            echo "<p>Precio: $" . $row['precio'] . "</p>";
-            echo "<p>Cantidad: <input type='number' name='quantity_" . $row['id'] . "' value='" . $row['cantidad'] . "' min='1'></p>"; // Spinner para modificar la cantidad
+            echo "<div class='productoCarrito '>";
+            echo "<h1>" . $row['producto_nombre'] . " asss</h2>";
+            // echo "<p>Cliente: " . $row['cliente_nombre'] . "</p>";
+            echo "<p class='fs-2'>Precio: <span class='precioCarrito'>$" . $row['precio'] . "</span></p>";
+
+            echo "
+            <div class='d-flex'>
+            <p class='fs-2 d-flex'>Cantidad: <input type='number' name='quantity_" . $row['id'] . "' value='" . $row['cantidad'] . "' min='1'></p>
+            <button type='submit' name='update_quantity' class='fs-2' value='" . $row['id'] . "'>Actualizar cantidad</button>
+            </div>
+            "; // Spinner para modificar la cantidad
             echo "<p>Subtotal: $" . $subtotal . "</p>";
-            echo "<button type='submit' name='update_quantity' value='" . $row['id'] . "'>Actualizar cantidad</button>"; // Botón para actualizar la cantidad
-            echo "</div>";
+            
+            echo ""; // Botón para actualizar la cantidad
             echo "<button type='submit' name='delete' value='" . $row['id'] . "'>Eliminar</button>";
             echo "<button type='submit' name='buy_single' value='" . $row['id'] . "'>Comprar</button>"; // Botón para comprar individualmente
             echo "</div><hr>";
@@ -108,6 +119,7 @@ include "layout/header.php";
         echo "<h2>Total: $" . $total . "</h2>";
         echo "</form>"; 
         ?>
+        </div>
         </div>
     </div>
 </div>
