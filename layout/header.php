@@ -7,7 +7,6 @@ if (isset($_SESSION["correo"])) {
 
 
 
-
 }
 ?>
 
@@ -48,9 +47,6 @@ if (isset($_SESSION["correo"])) {
             <li class="nav-item">
               <a class="nav-link text-dark" href="/nosotros.php">Nosotros</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link text-dark" href="/insertar_productos.php">insertar</a>
-            </li>
         </ul>
         <!-- CON LOGIN -->
         <?php
@@ -59,33 +55,57 @@ if (isset($_SESSION["correo"])) {
           <ul class="navbar-nav">
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle text-dark" href="#" role="button" data-bs-toggle="dropdown"
-                aria-expanded="false">
-                Admin
+                aria-expanded="false">Yo, 
+                <?php 
+                echo $_SESSION['nombre'];
+                ?>
               </a>
               <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="/vistas_clientes/perfil.php">Perfil</a></li>
+                <h5 class="fs-4 font-weight-bold" style="padding-left:10px;">
+                <?php 
+                if($rol =='cliente'){
+                  echo 'Cliente';
+                }else if($rol == 'empleado'){
+                  echo 'Empleado';
+                }else if($rol == 'administrador'){
+                  echo 'Administrador';
+                }
+
+                ?>  
+                
+                
+                <h5/>
+                <hr class="dropdown-divider">
+                <li><a class="dropdown-item" href="/vistas_clientes/perfil_cliente.php">Perfil</a></li>
                 <?php 
                 if ($_SESSION['privilegio'] === 'empleado' || $_SESSION['privilegio'] === 'administrador') {
                   # code...
                 
                 ?>
+
+
                 <li>
                   <hr class="dropdown-divider">
                 </li>
-                <li><a class="dropdown-item" href="/vistas_empleados/agregarProductos.php">Agregar Productos</a></li>
+                <li><a class="dropdown-item" href="/vistas_empleados/agregar-productos.php">Agregar Productos</a></li>
                 
                 <?php }?>
                 <li>
                   <hr class="dropdown-divider">
                 </li>
+                  <li class="">
+                    <a class="dropdown-item" href="/carrito.php">Carrito de compras</a>    
+                  </li>
+                  <li class="">
+                    <a class="dropdown-item" href="/mis_compras.php">Mis compras</a>    
+                  </li>
+
+
+                <li>
+                  <hr class="dropdown-divider">
+                </li>
                 <li><a class="dropdown-item" href="/logout.php">Cerrar sesión</a></li>
               </ul>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link text-dark" href="/carrito.php">Carrito de compras</a>    
-            </li>
-            <li class="nav-item">
-              <a class="nav-link text-dark" href="/mis_compras.php">mis compras</a>    
             </li>
           </ul>
           <?php
