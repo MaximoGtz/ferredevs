@@ -32,3 +32,34 @@
     padding-left: 400px;
  size: 40px;
 }
+.contenedorProductosCarrito{
+    width: 110%;
+}
+.botonProducto{
+    width: 100%;
+    margin-top:20px;
+    font-weight: 600;
+    font-size: larger;
+    bottom: 0;
+}
+.textoProducto{
+    text-align: center;
+}
+.productoCarrito h1{
+    color:black;
+    text-align: center;
+}
+.productoCarrito p{
+    color:black;
+    font-size: large;
+}
+.productoCarrito button{
+    width:100%;
+    font-size: large;
+}
+.productoCarrito{
+    width: 100%;
+}
+.precioCarrito{
+    font-weight: 600;
+}

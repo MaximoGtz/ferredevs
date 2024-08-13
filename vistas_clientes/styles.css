@@ -31,3 +31,12 @@
   width: 100%;
   height: 600px;
 }
+.custom-btn {
+  background-color: #ff0000; /* Cambia este código de color al que prefieras */
+  border-color: #ff5733; /* Asegúrate de que coincida con el color de fondo */
+}
+
+.custom-btn:hover {
+  background-color: #e04a29; /* Color para el hover */
+  border-color: #e04a29; /* También cambia el color del borde en hover */
+}
