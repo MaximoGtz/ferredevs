@@ -164,10 +164,10 @@ if(!$error){
                 </div>
                 <div class="row mb-3">
                     <div class="offset-sm-4 col-sm-4 d-grid">
-                        <button type="submit" class="btn btn-primary">Registrar</button>
+                        <button type="submit" class="btn btn-primary botonForm">Registrar</button>
                     </div>
                     <div class="col-sm-4 d-grid">
-                        <a href="/index.php" class="btn btn-outline-primary">
+                        <a href="/index.php" class="btn btn-outline-primary botonForm">
                             Cancelar
                             <!-- </div> -->
                         </a>

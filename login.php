@@ -48,7 +48,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 
                 // redirecciona al usuario a la pagina principal
-                header("location: /vistas_clientes/index.php");
+                header("location: /index.php");
                 exit;
             }
         }
@@ -87,10 +87,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             </div>
             <div class="row mb-3">
                 <div class="col d-grid">
-                    <button type="submit" class="btn btn-primary">Inicia sesión</button>
+                    <button type="submit" class="btn btn-primary botonForm">Inicia sesión</button>
                 </div>
                 <div class="col d-grid">
-                    <a href="/index.php" class="btn btn-outline-primary">Cancelar</a>
+                    <a href="/index.php" class="btn btn-outline-primary botonForm">Cancelar</a>
                 </div>
             </div>
 

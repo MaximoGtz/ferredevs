@@ -1,5 +1,10 @@
 <?php 
-include "layout/header.php";
+    include "layout/header.php";
+if(!isset($_SESSION['correo'])){
+    header("location: /login.php");
+    exit;
+  }
+
 ?>
 
 <link rel="stylesheet" href="styles.css" type="text/css">
