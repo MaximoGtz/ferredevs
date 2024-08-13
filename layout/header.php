@@ -90,6 +90,9 @@ if (isset($_SESSION["correo"])) {
             <li class="nav-item">
               <a class="nav-link text-dark" href="/mis_compras.php">mis compras</a>    
             </li>
+            <li class="nav-item">
+              <a class="nav-link text-dark" href="/calculo_de_ganancias.php">ganancias</a>    
+            </li>
           </ul>
           <?php
         } else {
