@@ -4,10 +4,7 @@ include "layout/header.php";
 <link rel="stylesheet" href="styles.css" type="text/css">
 <div class="container-lg">
     <div class="row contenedorVerProductos">
-        <div class="col-3 bg-primary">
-            Aquí va a estar el buscador de los productos
-        </div>
-        <div class="col-9 bg-secondary">
+        <div class="col-12 bg-secondary">
             <div class="row row-cols-1 row-cols-md-3 g-4">
                 <?php
                 include "herramientas/basededatos.php";
@@ -35,11 +32,13 @@ include "layout/header.php";
                     echo '<div class="card h-100">';
                     echo '<img src="' . $src_imagen . '" class="productImg card-img-top" alt="...">';
                     echo '<div class="card-body">';
-                    echo '<h5 class="card-title">' . $row['Nombre'] . '</h5>';
-                    echo '<p class="card-text">' . $row['Marca'] . '</p>';
-                    echo '<p class="card-text">' . $row['descripcion'] . '</p>';
-                    echo '<p class="card-text"> $' . $row['PrecioDeCompra'] . '</p>';
-                    echo '<p class="card-text"> Existencias: ' . $row['Existencias'] . '</p>';
+                    echo '<h5 class=" textoProducto">' . $row['Nombre'] . '</h5>';
+                    echo '<p class="   textoProducto">' . $row['Marca'] . '</p>';
+                    
+                    echo '<p class="   textoProducto">'. $row['descripcion'] .' as</p>';
+
+                    echo '<p class="   textoProducto"> $' . $row['PrecioDeCompra'] . '</p>';
+                    echo '<p class="   textoProducto"> Existencias: ' . $row['Existencias'] . '</p>';
 
 
                     if ($row['Existencias'] > 0) {
@@ -47,7 +46,7 @@ include "layout/header.php";
                         echo '<input type="hidden" name="id_producto" value="' . $row['IdProducto'] . '">';
                         echo '<input type="hidden" name="id_usuario" value="' . $cliente_id . '">';
                         echo '<input type="hidden" name="cantidad" value="1">'; 
-                        echo '<button type="submit" class="btn btn-primary">Agregar al carrito</button>';
+                        echo '<button type="submit" class="btn btn-primary botonProducto">Agregar al carrito</button>';
                         echo '</form>';
                     } else {
                         
