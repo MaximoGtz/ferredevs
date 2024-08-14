@@ -6,7 +6,6 @@ if (isset($_SESSION["correo"])) {
   $auth = true;
 }
 ?>
-
 <!doctype html>
 <html lang="en">
 
@@ -50,15 +49,15 @@ if (isset($_SESSION["correo"])) {
                 </ul>
                 <!-- CON LOGIN -->
                 <?php
-        if ($auth) {
+            if ($auth) {
             ?>
-            <ul class="navbar-nav mb-2 mb-lg-0 ">
-                <li class="nav-item">
-                    <a class="dropdown-item" href="/carrito.php">
-                        <i class="bi bi-cart3 " style="font-size: 24px; margin: 0px 10px;"></i>
-                    </a>
-                </li>
-            </ul>
+                <ul class="navbar-nav mb-2 mb-lg-0 ">
+                    <li class="nav-item">
+                        <a class="dropdown-item" href="/carrito.php">
+                            <i class="bi bi-cart3 " style="font-size: 24px; margin: 0px 10px;"></i>
+                        </a>
+                    </li>
+                </ul>
                 <ul class="navbar-nav">
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle text-dark" href="#" role="button" data-bs-toggle="dropdown"
@@ -96,15 +95,15 @@ if (isset($_SESSION["correo"])) {
                                         Productos</a></li>
 
                                 <?php } ?>
-                                  <li>
-                                      <hr class="dropdown-divider">
-                                  </li>
-                                  <li>
-                                      <a class="dropdown-item" href="/carrito.php">Carrito de compras</a>
-                                  </li>
-                                  <li>
-                                      <a class="dropdown-item" href="/mis_compras.php">Mis compras</a>
-                                  </li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="/carrito.php">Carrito de compras</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="/mis_compras.php">Mis compras</a>
+                                </li>
 
 
                                 <li>
@@ -114,7 +113,7 @@ if (isset($_SESSION["correo"])) {
                         </ul>
                     </li>
                 </ul>
-                <?php } else {?>
+                <?php } else { ?>
                 <!-- CON LOGIN CIERRE -->
                 <!-- SIN LOGIN -->
                 <ul class="navbar-nav">

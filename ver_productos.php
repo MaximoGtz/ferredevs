@@ -50,12 +50,14 @@ include "layout/header.php";
                         }
                         echo '<input type="hidden" name="cantidad" value="1">'; 
                         echo '<div class="contenedorBotonProducto">';
-                        echo '<button type="submit" class="btn btn-primary botonProducto">Agregar al carrito</button>';
+                        echo '<button type="submit" class="btn btn-warning botonProducto">Agregar al carrito</button>';
                         echo '</div>';
                         echo '</form>';
                     } else {
                         
-                        echo '<button type="submit" class="btn btn-primary">Producto agotado</button>';
+                        echo '<div class="contenedorBotonProducto">';
+                        echo '<button type="submit" class="btn btn-danger botonProducto" disabled>Producto agotado</button>';
+                        echo '</div>';
                         // echo '<p class="text-danger">Producto agotado</p>';
                     }
 

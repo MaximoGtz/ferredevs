@@ -1,9 +1,9 @@
 <?php 
-if($rol != 'administrador'){
-   header('location: index.php');
-   exit();
-}
 include "layout/header.php";
+if ($_SESSION['privilegio'] != 'administrador') {
+   header('location: /index.php');
+   exit;
+}
 include "herramientas/basededatos.php";
 $conn = crearConexion(); 
 
