@@ -20,13 +20,13 @@
 /* body{
     background-color: #e67d34;
 } */
-  button {
+  /* button {
     margin-top: 10px;
     margin-bottom: 10px;
     padding: 5px;
     width: 100px;
-    height: 70px;
-}
+    height: 70px; */
+/* } */
 .objetos_carrito{
     width: 100vh;
     color: blue;
@@ -35,9 +35,9 @@
     padding-left: 400px;
  size: 40px;
 }
-.contenedorProductosCarrito{
+/* .contenedorProductosCarrito{
     width: 110%;
-}
+} */
 .botonProducto{
     width: 100%;
     margin: 0 auto;
@@ -54,20 +54,20 @@
 .textoProducto{
     text-align: center;
 }
-.productoCarrito h1{
+/* .productoCarrito h1{
     color:black;
     text-align: center;
 }
 .productoCarrito p{
     color:black;
     font-size: large;
-}
-.productoCarrito button{
+} */
+/* .productoCarrito button{
     width:100%;
     font-size: large;
-}
+} */
 .productoCarrito{
-    width: 100%;
+    width: 50%;
 }
 .precioCarrito{
     font-weight: 600;
@@ -128,3 +128,6 @@
   /* .anchoo{
     height:700px;
   } */
+  .centrarProductosCarrito{
+    margin-left: 200px;
+  }

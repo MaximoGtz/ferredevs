@@ -112,7 +112,7 @@ if(!$error){
     $_SESSION["privilegio"] = 'cliente';
     $_SESSION['creado_en'] = $creado_en;
 
-    header("location: /vistas_clientes/index.php");
+    header("location: /index.php");
     exit;
 
     }

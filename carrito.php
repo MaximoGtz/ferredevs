@@ -103,17 +103,17 @@ if(!isset($_SESSION['correo'])){
             $subtotal = $row['precio'] * $row['cantidad'];
             $total += $subtotal;
 
-            echo "<div class='productoCarrito '>";
-            echo "<h1>" . $row['producto_nombre'] . " asss</h2>";
+            echo "<div class='productoDelCarrito class='centrarProductosCarrito'>";
+            echo "<h1 class='text-center'>" . $row['producto_nombre'] . "</h2>";
             // echo "<p>Cliente: " . $row['cliente_nombre'] . "</p>";
-            echo "<p class='fs-2'>Precio: <span class='precioCarrito'>$" . $row['precio'] . "</span></p>";
-
+            
             echo "
-            <div class='d-flex'>
+            <div class='d-flex w-100'>
             <p class='fs-2 d-flex'>Cantidad: <input type='number' name='quantity_" . $row['id'] . "' value='" . $row['cantidad'] . "' min='1'></p>
-            <button type='submit' name='update_quantity' class='fs-2' value='" . $row['id'] . "'>Actualizar cantidad</button>
+            <button type='submit' name='update_quantity' value='" . $row['id'] . "'>Actualizar cantidad</button>
             </div>
             "; // Spinner para modificar la cantidad
+            echo "<p>Precio: <span class='precioCarrito'>$" . $row['precio'] . "</span></p>";
             echo "<p>Subtotal: $" . $subtotal . "</p>";
             
             echo ""; // Botón para actualizar la cantidad
@@ -121,7 +121,7 @@ if(!isset($_SESSION['correo'])){
             echo "<button type='submit' name='buy_single' value='" . $row['id'] . "'>Comprar</button>"; // Botón para comprar individualmente
             echo "</div><hr>";
         }
-        echo "<h2>Total: $" . $total . "</h2>";
+        echo "<h2 class='text-center'>Total: $" . $total . "</h2>";
         echo "</form>"; 
         ?>
         </div>

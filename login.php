@@ -1,6 +1,6 @@
 <?php
-include "layout/header.php";
 //Compruyeba si el usuiario esta logueado, si sí entonces lo redirige a la pagina de inicio
+include "layout/header.php";
 if (isset($_SESSION["email"])) {
     header("location: /index.php");
     exit;
