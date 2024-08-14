@@ -69,16 +69,16 @@ if (isset($_SESSION["correo"])) {
                   echo 'Empleado';
                 } else if($rol == 'administrador'){
                   echo 'Administrador';
-                  echo '<a class="dropdown-item" href="/vistas_clientes/perfil.php">Modificar personal</a>';
+                  echo '<li><a class="dropdown-item" href="/vistas_clientes/perfil.php">Modificar personal</a></li>';
                 }
                 ?>
               </h5>
-              <hr class="dropdown-divider">
+              <!-- <hr class="dropdown-divider">
               <li><a class="dropdown-item" href="/vistas_clientes/perfil_cliente.php">Perfil</a></li>
               <?php if ($rol == 'empleado' || $rol == 'administrador'): ?>
               <li>
                 <hr class="dropdown-divider">
-              </li>
+              </li> -->
               <li><a class="dropdown-item" href="/vistas_empleados/agregar-productos.php">Agregar Productos</a></li>
               <?php endif; ?>
               <li>

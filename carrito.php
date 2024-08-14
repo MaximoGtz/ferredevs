@@ -14,9 +14,9 @@ if(!isset($_SESSION['correo'])){
        <h1 class="text-center">Carrito de compras</h1>
     </div>
     <div class="contenedorVerProductos  ">
-        <div>
+        <!-- <div>
             <img class="carrito" src="./imgs/CARRITO.png" alt="">
-        </div>
+        </div> -->
         
         <div class="row objetos_carrito">
         
@@ -61,7 +61,7 @@ if(!isset($_SESSION['correo'])){
                             echo "Error: " . $conn->error;
                         }
                     } else {
-                        echo "No puedes comprar más de lo que hay en existencias.";
+                        echo 'No puedes comprar más de lo que hay en existencias.';
                     }
                 }
             }
@@ -82,7 +82,10 @@ if(!isset($_SESSION['correo'])){
                     $sql = "UPDATE orden SET cantidad = $new_quantity WHERE id = $carrito_id AND id_usuario = $cliente_id";
                     $conn->query($sql);
                 } else {
-                    echo "No puedes agregar más de lo que hay en existencias.";
+                    // echo "No puedes agregar más de lo que hay en existencias.";
+                    echo '<div class="alert alert-warning w-100" role="alert">
+  No puedes agregar más de lo que hay en existencias.
+</div>';
                 }
             }
         }
@@ -97,31 +100,35 @@ if(!isset($_SESSION['correo'])){
 
         $total = 0;
 
-        echo "<form method='POST'>"; 
+        echo "<form method='POST' class='w-100'>"; 
 
         while($row = $result->fetch_assoc()) {
             $subtotal = $row['precio'] * $row['cantidad'];
             $total += $subtotal;
 
-            echo "<div class='productoDelCarrito class='centrarProductosCarrito'>";
-            echo "<h1 class='text-center'>" . $row['producto_nombre'] . "</h2>";
+            echo "<div class='centrarProductosCarrito'>";
             // echo "<p>Cliente: " . $row['cliente_nombre'] . "</p>";
-            
+            echo '<div class="card h-100 tarjetaProducto">';
+            echo '<img src="./imgs/productos/'.$row['producto_nombre'].'.jpg" class="verProductosImagen" alt="No hay martillo"';
+            echo '<div class="card-body">';
+            echo "<h1 class='text-center' style='color:black;'>" . $row['producto_nombre'] . "</h2>";
             echo "
-            <div class='d-flex w-100'>
-            <p class='fs-2 d-flex'>Cantidad: <input type='number' name='quantity_" . $row['id'] . "' value='" . $row['cantidad'] . "' min='1'></p>
-            <button type='submit' name='update_quantity' value='" . $row['id'] . "'>Actualizar cantidad</button>
+            <div class='d-flex justify-content-around botonCantidad'>
+            <p class='fs-2 d-flex' style='color:black;'>Cantidad: <input type='number' name='quantity_" . $row['id'] . "' value='" . $row['cantidad'] . "' min='1'></p>
+            <button type='submit' class='botonActualizar btn btn-warning' name='update_quantity' value='" . $row['id'] . "'>Actualizar cantidad</button>
             </div>
             "; // Spinner para modificar la cantidad
-            echo "<p>Precio: <span class='precioCarrito'>$" . $row['precio'] . "</span></p>";
-            echo "<p>Subtotal: $" . $subtotal . "</p>";
+            echo "<p class='text-center mt-4 fs-2 colornegro'>Precio: <span class='precioCarrito'>$" . $row['precio'] . "</span></p>";
+            echo "<p class='text-center mt-4 fs-2 colornegro'>Subtotal: <span class='precioCarrito'> $" . $subtotal . " </span></p>";
             
-            echo ""; // Botón para actualizar la cantidad
-            echo "<button type='submit' name='delete' value='" . $row['id'] . "'>Eliminar</button>";
-            echo "<button type='submit' name='buy_single' value='" . $row['id'] . "'>Comprar</button>"; // Botón para comprar individualmente
+            echo "<div class='dosbotones'>"; // Botón para actualizar la cantidad
+            echo "<button class='btn btn-danger' type='submit' name='delete' value='" . $row['id'] . "'>Eliminar</button>";
+            echo "<button class='btn btn-success' type='submit' name='buy_single' value='" . $row['id'] . "'>Comprar</button>"; // Botón para comprar individualmente
+            echo "</div>"; // Botón para actualizar la cantidad
             echo "</div><hr>";
+            echo"</div>";
         }
-        echo "<h2 class='text-center'>Total: $" . $total . "</h2>";
+        echo "<h2 class='text-center colornegro text-center p-5 fs-1' style='margin-left:250px; font-weight:600;'>Total: <span style='color:red'>$" . $total . "</span></h2>";
         echo "</form>"; 
         ?>
         </div>

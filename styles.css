@@ -35,9 +35,12 @@
     padding-left: 400px;
  size: 40px;
 }
-/* .contenedorProductosCarrito{
-    width: 110%;
-} */
+.contenedorProductosCarrito{
+    width: 100%;
+}
+.contenedorProductosCarrito hr{
+  width: 100%;
+}
 .botonProducto{
     width: 100%;
     margin: 0 auto;
@@ -71,6 +74,7 @@
 }
 .precioCarrito{
     font-weight: 600;
+    color:black;
 }
 .verProductosImagen{
     width: 300px;
@@ -129,5 +133,45 @@
     height:700px;
   } */
   .centrarProductosCarrito{
-    margin-left: 200px;
+    /* margin-left: 200px; */
+    width: 1296px;
+  }
+  .productosDelCarrito{
+    width: 1500px;
+  }
+  .botonActualizar{
+    width: 160px;
+    margin-left: auto;
+    font-size: large;
+    font-weight: 600;
+  }
+  .botonCantidad{
+    margin:0px 200px;
+  }
+  .colornegro{
+    color:black;
+  }
+  .dosbotones{
+    display: flex;
+    justify-content:space-between;
+    margin:0px 350px;
+  }
+  .dosbotones button{
+    width: 200px;
+    height: 80px;
+    font-size: larger;
+
+  }
+  .tarjetaMisCompras{
+    background-color: #FFE5B4;
+  }
+  .tablaMisCompras{
+    margin-left: 450px;
+  }
+  .botoncarrusel1{
+    margin-top: 180px;
+  }
+  .botoncarrusel1 button{
+    padding:30px;
+    font-weight: 600;
   }
