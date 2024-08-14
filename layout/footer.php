@@ -66,7 +66,9 @@
         <!-- Grid column -->
         <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
           <h6 class="text-uppercase mb-4 font-weight-bold">Contacto</h6>
-          <p><i class="fas fa-home mr-3"></i> Nosotros somos FerreDevs </p>
+          <p><i  class="nav-item">
+            <a class=" text-white" href="/ferredevs/nosotros.php">FerreDevs</a>
+            </p>
           <p><i class="fas fa-envelope mr-3"></i> 2123100596@soy.utj.edu.mx </p>
           <p><i class="fas fa-phone mr-3"></i> 33 2538 4434</p>
           <p><i class="fas fa-print mr-3"></i> Ciudad Creativa Digital</p>
