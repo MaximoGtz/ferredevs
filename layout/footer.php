@@ -23,18 +23,18 @@
 
         <!-- Grid column -->
         <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
-          <h6 class="text-uppercase mb-4 font-weight-bold">Products</h6>
+          <h6 class="text-uppercase mb-4 font-weight-bold">Productos</h6>
           <p>
-            <a class="text-white">MDBootstrap</a>
+            <a class="text-white">Nuestra tienda</a>
           </p>
           <p>
-            <a class="text-white">MDWordPress</a>
+            <a class="text-white">Pagina de contacto</a>
           </p>
           <p>
-            <a class="text-white">BrandFlow</a>
+            <a class="text-white">Seguimiento de contratacion</a>
           </p>
           <p>
-            <a class="text-white">Bootstrap Angular</a>
+            <a class="text-white">Nuestra aplicacion móvil</a>
           </p>
         </div>
         <!-- Grid column -->
@@ -44,19 +44,19 @@
         <!-- Grid column -->
         <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
           <h6 class="text-uppercase mb-4 font-weight-bold">
-            Useful links
+            Links útiles
           </h6>
           <p>
-            <a class="text-white">Your Account</a>
+            <a class="text-white">Tu cuenta</a>
           </p>
           <p>
-            <a class="text-white">Become an Affiliate</a>
+            <a class="text-white">Conviertete en miembro</a>
           </p>
           <p>
-            <a class="text-white">Shipping Rates</a>
+            <a class="text-white">Nuestras ventas en el mundo</a>
           </p>
           <p>
-            <a class="text-white">Help</a>
+            <a class="text-white">Ayuda</a>
           </p>
         </div>
 

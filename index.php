@@ -108,21 +108,21 @@ include "layout/header.php";
                     <div class="col-lg-4">
                         <div class="testimonial-item mx-auto mb-5 mb-lg-0">
                             <img class="img-fluid rounded-circle mb-3" src="/imgs/personas/testimonials-1.jpg" alt="..." />
-                            <h5>Margaret E.</h5>
+                            <h5>Margarita H.</h5>
                             <p class="font-weight-light mb-0">"La aplicacion funciona de maravilla, muchas gracias chicos!"</p>
                         </div>
                     </div>
                     <div class="col-lg-4">
                         <div class="testimonial-item mx-auto mb-5 mb-lg-0">
                             <img class="img-fluid rounded-circle mb-3" src="/imgs/personas/testimonials-2.jpg" alt="..." />
-                            <h5>Fred S.</h5>
+                            <h5>Alfredo G.</h5>
                             <p class="font-weight-light mb-0">"Ahora puedo seguir trabajando sin interrupciones, muchas gracias"</p>
                         </div>
                     </div>
                     <div class="col-lg-4">
                         <div class="testimonial-item mx-auto mb-5 mb-lg-0">
                             <img class="img-fluid rounded-circle mb-3" src="/imgs/personas/testimonials-3.jpg" alt="..." />
-                            <h5>Sarah W.</h5>
+                            <h5>Sara W.</h5>
                             <p class="font-weight-light mb-0">"Mi agencia de trabajo funciona mucho mejor gracias a Ferretería Azteca!"</p>
                         </div>
                     </div>
